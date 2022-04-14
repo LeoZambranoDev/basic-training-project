@@ -1,0 +1,20 @@
+¿Cómo utilizar sequelize?
+    1. instalar 'sequelize', 'sequelize-cli -g', 'mysql'
+    2. crear archivo '.sequelizerc', dentro de este agregar el siguiente código para la generación de los directorios necesarios:
+        "
+        const path = require('path')
+        module.exports = {
+        config: path.resolve('./src/database/config', 'config.js'),
+        'models-path': path.resolve('./src/database/models'),
+        'seeders-path': path.resolve('./src/database/seeders'),
+        'migrations-path': path.resolve('./src/database/migrations'),
+        }
+        " 
+    3. ejecutar el comando 'sequelize init' en la consola
+    4. Configurar el archivo 'config.js', 'module.exports' al json que se encuentra ahí
+    5. Crear los modelos en la carpeta 'models', con la siguiente estructura:
+        "
+        module.exports = (sequelize,DataTypes) => {
+        return sequelize.define(alias, structure, config)
+        }
+        "
